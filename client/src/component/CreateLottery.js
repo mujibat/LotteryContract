@@ -24,7 +24,7 @@ const CreateLottery = () => {
     }
 
     const handleCreateLottery =  async () => {
-        if (!duration || title)
+        if (!duration || !title)
         return alert("Please provide all values");
         if (!isActive) return alert("please, connect");
         try {
@@ -82,7 +82,7 @@ const CreateLottery = () => {
                                         as="h3"
                                         className="text-lg font-medium leading-6 text-gray-900"
                                     >
-                                        Create Campaign
+                                        Create Lottery
                                     </Dialog.Title>
                                     <div className="mt-2">
                                         <p className="text-sm text-gray-500">

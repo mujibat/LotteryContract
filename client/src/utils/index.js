@@ -24,6 +24,10 @@ export const getContract = async (address, abi, provider, withWrite) => {
     );
 };
 
+export const getContractWithProvider = (address, abi, provider) => {
+    return new ethers.Contract(address, abi, provider);
+}
+
 export const getLotteryContract = async (provider, withWrite) => {
     return await getContract(
         LotteryContractAddress,
@@ -33,9 +37,17 @@ export const getLotteryContract = async (provider, withWrite) => {
     );
 };
 
+export const getLotteryContractWithProvider = (provider) => {
+    return getContractWithProvider(
+        LotteryContractAddress,
+        abi,
+        provider
+    );
+};
+
 export const formatDate = (time) => {
     // Convert the timestamp to milliseconds by multiplying it by 1000
-    const date = new Date(time * 1000);
+    const date = new Date(Number(time) * 1000);
 
     // Get the year, month, and day components
     const year = date.getFullYear();
